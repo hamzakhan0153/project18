@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Write a JavaScript program to find the kth greatest element of a given array of Numbers</title>
+</head>
+<body>
+  <style>
+    h1{
+      color: red;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      
+    }
+  </style>
+  <h1>
+    18.kth greatest element of a given array of Numbers
+  </h1>
+<script>
+function Kth_greatest_in_array(arr, k) {
+
+  for (var i = 0; i < k; i++) {
+    var max_index = i,
+      tmp = arr[i];
+
+    for (var j = i + 1; j < arr.length; j++) {
+      if (arr[j] > arr[max_index]) {
+        max_index = j;
+      }
+    }
+
+    arr[i] = arr[max_index];
+    arr[max_index] = tmp;
+  }
+
+  return arr[k - 1];
+}
+
+document.write("The Kth Largest After 3 is: " + Kth_greatest_in_array([1,2,6,4,5], 3) + "<br>");
+document.write("The Kth Largest After 1 is: " +Kth_greatest_in_array([-10,-25,-47,2,0], 1));
+</script>
+</body>
+</html>
